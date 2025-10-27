@@ -121,17 +121,15 @@ void MuonExercise2::matchTrigger(const edm::Event& iEvent,
     for (const auto& triggerName : triggerNames) {
         matched[triggerName] = false;
     }
-    for (const auto& muTrigger : mu.triggerObjectMatches()) {
-        
+    for (const auto& muTrigger : mu.triggerObjectMatches()) {      
         pat::TriggerObjectStandAlone& trigobj = const_cast<pat::TriggerObjectStandAlone&>(muTrigger);
         trigobj.unpackNamesAndLabels(iEvent, *trigResults);
         float dR_tmp = deltaR(mu.eta(), mu.phi(), trigobj.eta(), trigobj.phi());
         
         if (dR_tmp < 0.1) {
           for (const auto& triggerName : triggerNames) {
-              // 判断是否是 HLT_TripleMu_12_10_5
+
               if (triggerName == "HLT_TripleMu_12_10_5") {
-                  // 使用 pathNames(false, true)
                   for (const auto& path : trigobj.pathNames(false, true)) {
                       if (path.find(triggerName) != std::string::npos) {
                           // std::cout<<mu.pt()<<"   "<<mu.eta()<<"   "<<mu.phi()<<std::endl; 
@@ -140,7 +138,6 @@ void MuonExercise2::matchTrigger(const edm::Event& iEvent,
                       }
                   }
               } else {
-                  // 默认使用 pathNames(true, true)
                   for (const auto& path : trigobj.pathNames(true, true)) {
                       if (path.find(triggerName) != std::string::npos) {
                           // std::cout<<mu.pt()<<"   "<<mu.eta()<<"   "<<mu.phi()<<std::endl; 
