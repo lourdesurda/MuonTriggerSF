@@ -11,6 +11,8 @@ To set up the environment:
 cmsrel CMSSW_15_0_2
 cd CMSSW_15_0_2/src
 cmsenv
+source /cvmfs/cms.cern.ch/crab3/crab.sh
+voms-proxy-init -voms cms
 ```
 #Now clone the repository 
 
