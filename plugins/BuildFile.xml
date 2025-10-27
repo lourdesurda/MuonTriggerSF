@@ -1,0 +1,11 @@
+<use name="FWCore/Framework"/> 
+<use name="FWCore/PluginManager"/>
+<use name="FWCore/ParameterSet"/>
+<use name="DataFormats/L1Trigger"/> 
+<use name="DataFormats/TrackReco"/> 
+<use name="SimTracker/Records"/> 
+<use name="DataFormats/MuonReco"/> 
+<use name="DataFormats/Math"/> 
+<use name="CommonTools/UtilAlgos"/> 
+<use name="PhysicsTools/UtilAlgos"/> 
+<flags EDM_PLUGIN="1"/>
